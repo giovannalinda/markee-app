@@ -1,5 +1,12 @@
+import styled from 'styled-components'
 export function App () {
   return (
-    <h1>Markee</h1>
+    <Main>
+      oi
+    </Main>
   )
 }
+
+const Main = styled.main`
+  display: flex;
+`
