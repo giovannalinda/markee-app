@@ -1,12 +1,15 @@
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
+import { Sidebar } from './sidebar/sidebar'
+
 export function App () {
   return (
     <Main>
-      oi
+      <Sidebar />
     </Main>
   )
 }
 
 const Main = styled.main`
   display: flex;
+  height: 100vh;
 `
