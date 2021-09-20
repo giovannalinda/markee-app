@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro'
-import { Sidebar } from './sidebar/sidebar'
+import { Sidebar } from 'components/sidebar/sidebar'
 
 export function App () {
   return (
