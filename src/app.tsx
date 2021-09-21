@@ -1,10 +1,12 @@
 import styled from 'styled-components/macro'
 import { Sidebar } from 'components/sidebar/sidebar'
+import { Content } from 'components/content/content'
 
 export function App () {
   return (
     <Main>
       <Sidebar />
+      <Content />
     </Main>
   )
 }
