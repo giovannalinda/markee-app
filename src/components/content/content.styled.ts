@@ -10,7 +10,7 @@ export const TypeArea = styled.div`
   flex-direction: column;
   padding: 24px;
   height: 100vh;
-  width: 650px;
+  width: 600px;
 
   textarea {
     height: 100%;
@@ -25,14 +25,18 @@ export const TypeArea = styled.div`
 `
 
 export const MarkdownSide = styled.div`
-
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  height: 100vh;
+  width: 400px;
 `
 
 export const Separator = styled.div`
   height: 100vh;
   width: 2px;
   background: rgba(30, 41, 59, 0.12);
-    cursor: ew-resize;
 `
 
 export const InputArea = styled.div`

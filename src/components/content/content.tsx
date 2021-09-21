@@ -18,6 +18,11 @@ export function Content () {
         />
       </S.TypeArea>
       <S.Separator />
+      <S.MarkdownSide>
+        <h1>Bootcamp Brainn Co.</h1>
+        <p>Lorem ipsum dolor</p>
+        <S.MarkdownSide />
+      </S.MarkdownSide>
 
     </S.Container>
   )

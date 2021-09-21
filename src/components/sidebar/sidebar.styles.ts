@@ -86,6 +86,7 @@ export const ListItem = styled.li`
     margin: 9px 0 0 14px ;
     height: 20px;
     width: 20px;
+    color: var(--primary);
   }
 
   &:hover {
