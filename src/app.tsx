@@ -1,5 +1,17 @@
+import styled from 'styled-components/macro'
+import { Sidebar } from 'components/sidebar/sidebar'
+import { Content } from 'components/content/content'
+
 export function App () {
   return (
-    <h1>Markee</h1>
+    <Main>
+      <Sidebar />
+      <Content />
+    </Main>
   )
 }
+
+const Main = styled.main`
+  display: flex;
+  height: 100vh;
+`
