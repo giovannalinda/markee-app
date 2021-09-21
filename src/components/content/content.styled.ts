@@ -10,7 +10,7 @@ export const TypeArea = styled.div`
   flex-direction: column;
   padding: 24px;
   height: 100vh;
-  width: 550px;
+  width: 650px;
 
   textarea {
     height: 100%;
@@ -20,6 +20,7 @@ export const TypeArea = styled.div`
     background: transparent;
     margin-top: 43px;
     outline: none;
+    resize: none;
   }
 `
 
@@ -31,6 +32,7 @@ export const Separator = styled.div`
   height: 100vh;
   width: 2px;
   background: rgba(30, 41, 59, 0.12);
+    cursor: ew-resize;
 `
 
 export const InputArea = styled.div`

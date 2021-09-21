@@ -19,7 +19,6 @@ export function Content () {
       </S.TypeArea>
       <S.Separator />
 
-      <S.MarkdownSide />
     </S.Container>
   )
 }
