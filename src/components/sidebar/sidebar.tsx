@@ -6,17 +6,10 @@ import { File } from 'components/sidebar/sidebar.types'
 const files: File[] = [
   {
     id: '0',
-    name: 'README.md',
-    content: 'Conteúdo do README',
-    active: false,
-    status: 'saved',
-  },
-  {
-    id: '1',
-    name: 'CONTRIBUTING.md',
-    content: 'Conteúdo do Contributing',
+    name: 'Sem título',
+    content: '',
     active: true,
-    status: 'editing',
+    status: 'saved',
   },
 ]
 
