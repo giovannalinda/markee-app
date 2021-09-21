@@ -1,7 +1,6 @@
 import logo from 'assets/images/markee-logo.svg'
 import * as S from 'components/sidebar/sidebar.styles'
-import { AiOutlinePlus, AiOutlineClose } from 'react-icons/ai'
-import { FiFileText } from 'react-icons/fi'
+import { AiOutlinePlus } from 'react-icons/ai'
 import { File } from 'components/sidebar/sidebar.types'
 
 const files: File[] = [
@@ -14,17 +13,10 @@ const files: File[] = [
   },
   {
     id: '1',
-    name: 'LICENSE.md',
-    content: 'Conteúdo do LICENSE.md',
+    name: 'CONTRIBUTING.md',
+    content: 'Conteúdo do Contributing',
     active: true,
     status: 'editing',
-  },
-  {
-    id: '2',
-    name: 'CONTRIBUTING.md',
-    content: 'Conteúdo do CONTRIBUTING.md',
-    active: true,
-    status: 'saving',
   },
 ]
 
@@ -39,23 +31,28 @@ export function Sidebar () {
         <span>Arquivos</span>
       </h2>
 
-      <S.ButtonNewFile>
+      <S.Button>
         <AiOutlinePlus />
         Adicionar arquivo
-      </S.ButtonNewFile>
+      </S.Button>
 
       <S.FileList>
         {files.map(file => (
-          <S.ListItem key={file.id}>
-            <FiFileText />
-            <S.Link href={`/files/${file.name}`}>
+          <S.FileListItem key={file.id}>
+            <S.FileItemLink href={`/file/${file.name}`} active={file.active}>
               {file.name}
-            </S.Link>
-            <S.ButtonDelete><AiOutlineClose /></S.ButtonDelete>
-          </S.ListItem>
+            </S.FileItemLink>
+
+            {file.active && <S.StatusIconStyled status={file.status} />}
+
+            {!file.active && (
+              <S.RemoveButton title={`Remover o arquivo ${file.name}`}>
+                <S.RemoveIcon />
+              </S.RemoveButton>
+            )}
+          </S.FileListItem>
         ))}
       </S.FileList>
     </S.Aside>
-
   )
 }

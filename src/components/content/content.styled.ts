@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 
 export const Container = styled.div`
   margin-left: 33px;
@@ -24,15 +24,6 @@ export const TypeArea = styled.div`
   }
 `
 
-export const MarkdownSide = styled.div`
-  background: transparent;
-  display: flex;
-  flex-direction: column;
-  padding: 24px;
-  height: 100vh;
-  width: 400px;
-`
-
 export const Separator = styled.div`
   height: 100vh;
   width: 2px;
@@ -42,6 +33,7 @@ export const Separator = styled.div`
 export const InputArea = styled.div`
   display: flex;
   align-items: center;
+  font: 16px 'Inconsolata', 'Courier New', Courier, monospace;
 
   input {
     border: 0;
@@ -56,4 +48,14 @@ export const InputArea = styled.div`
   svg {
     color: var(--primary);
   }
+`
+
+export const MarkdownSide = styled.div`
+  font: 16px 'DM Sans', sans-serif;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  padding: 60px;
+  height: 100vh;
+  width: 500px;
 `

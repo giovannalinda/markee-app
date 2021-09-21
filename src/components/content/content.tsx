@@ -5,6 +5,7 @@ export function Content () {
   return (
     <S.Container>
       <S.TypeArea>
+
         <S.InputArea>
           <FiFileText size={24} />
           <input
@@ -17,7 +18,9 @@ export function Content () {
           placeholder='Digite seu conteúdo aqui'
         />
       </S.TypeArea>
+
       <S.Separator />
+
       <S.MarkdownSide>
         <h1>Bootcamp Brainn Co.</h1>
         <p>Lorem ipsum dolor</p>

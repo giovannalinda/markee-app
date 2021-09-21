@@ -1,4 +1,6 @@
-import styled from 'styled-components/macro'
+import styled, { css } from 'styled-components/macro'
+import { StatusIcon, StatusIconProps } from './status.icon'
+import * as icon from 'assets/icons'
 
 export const Image = styled.img`
   display: flex;
@@ -46,7 +48,7 @@ export const ButtonNewFile = styled.button`
   border-radius: 4px;
   color: var(--black);
   display: flex;
-  font-size: 1.4rem;
+  font-size: 14px;
   justify-content: center;
   margin-bottom: 32px;
   padding: 8px 0;
@@ -56,66 +58,116 @@ export const ButtonNewFile = styled.button`
   & svg {
     margin-right: 12px;
   }
-
   &:hover {
     opacity: 90%;
     transition: opacity 0.3s;
   }
 `
 
-export const FileList = styled.ul`
-  list-style: none;
+export const LogoLink = styled.a`
+  display: block;
 `
 
-export const ListItem = styled.li`
+const DefaultButton = styled.button`
   cursor: pointer;
-  color: var(--white);
+`
+
+export const Button = styled(DefaultButton)`
+  align-items: center;
+  background: var(--primary);
+  border: 0;
+  border-radius: 4px;
+  color: var(--LightBlack);
   display: flex;
-  font-size: 16px;
-  line-height: 21px;
-  opacity: 65%;
-  height: 40px;
-  transition: 0.3s;
-  margin: 0 0 10px 0;
+  font-size: 14px;
+  justify-content: center;
+  margin-bottom: 32px;
+  padding: 8px 0;
+  transition: 0.15s;
+  width: 100%;
 
-  :first-child {
-    margin: 34px 0 10px 0;
-  }
-
-  svg {
-    margin: 9px 0 0 14px ;
-    height: 20px;
-    width: 20px;
-    color: var(--primary);
+  & svg {
+    margin-right: 12px;
   }
 
   &:hover {
-    transition: opacity 0.2s;
-    opacity: 95%;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 6px;
+   opacity: 80%;
   }
 `
 
-export const Link = styled.a`
-  color: #fff;
-  text-decoration: none;
-  padding: 9px 0 7px 16px;
+export const FileList = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0;
 `
 
-export const ButtonDelete = styled.button`
-  background: none;
-  border: none;
-  cursor: pointer;
+export const StatusIconStyled = styled(StatusIcon)<StatusIconProps>`${({ status }) => css`
   position: absolute;
-  left: 270px;
-  height: 20px;
-  width: 20px;
+  right: 12px;
+  color: var(--primary);
+  top: 50%;
+  margin-top: ${status === 'saving' ? -5 : 0}px;
+  transform: translateY(-50%);
+`}`
+
+export const RemoveButton = styled(DefaultButton)`
+  background: transparent;
+  border: 0;
+  display: none;
+  margin: 0 0 0 auto;
+  padding: 0;
+  position: absolute;
+  right: 15px;
+  top: -3px;
+  width: 12px;
 
   & svg {
     width: 14px;
     height: 14px;
     color: var(--white);
     margin: 15px 15px 0 0;
+  }
+`
+
+export const RemoveIcon = styled(icon.Plus)`
+  margin: 0;
+  transform: rotate(45deg);
+`
+
+type FileItemLinkProps = {
+  active: boolean
+}
+
+export const FileItemLink = styled.a<FileItemLinkProps>`${({ active }) => css`
+  background: url("${active ? icon.FileActiveUrl : icon.FileUrl}") 10px calc(50% - 2px) no-repeat;
+  align-items: center;
+  border-radius: 4px;
+  color: var(--white);
+  display: flex;
+  font-size: 1.6rem;
+  padding: 8px 32px;
+  padding-left: 50px;
+  text-decoration: none;
+
+  ${active && css`
+    background-color: var(--lightBlack);
+  `}
+`}`
+
+export const FileListItem = styled.li`
+  position: relative;
+
+  :first-child {
+    margin: 34px 0 5px 0;
+  }
+
+  &:hover {
+    ${RemoveButton} {
+      display: block;
+    }
+
+    ${FileItemLink} {
+      background-color: var(--lightBlack);
+    }
   }
 `
