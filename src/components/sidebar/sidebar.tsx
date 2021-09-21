@@ -1,7 +1,7 @@
 import logo from 'assets/images/markee-logo.svg'
 import * as S from 'components/sidebar/sidebar.styles'
 import { AiOutlinePlus, AiOutlineFileText, AiOutlineClose } from 'react-icons/ai'
-import { File } from 'components/sidebar/sidebar-types'
+import { File } from 'components/sidebar/sidebar.types'
 
 const files: File[] = [
   {
@@ -33,13 +33,16 @@ export function Sidebar () {
       <header>
         <S.Image src={logo} alt='logo' />
       </header>
+
       <h2>
         <span>Arquivos</span>
       </h2>
+
       <S.ButtonNewFile>
         <AiOutlinePlus />
         Adicionar arquivo
       </S.ButtonNewFile>
+
       <S.FileList>
         {files.map(file => (
           <S.ListItem key={file.id}>

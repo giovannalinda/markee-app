@@ -1,12 +1,15 @@
 import { App } from 'app'
 import 'normalize.css'
-import { createGlobalStyle } from 'styled-components/macro'
+import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import { theme } from 'assets/theme/theme'
 
 export function Root () {
   return (
     <>
       <GlobalStyle />
-      <App />
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
     </>
   )
 }
@@ -16,7 +19,7 @@ export const GlobalStyle = createGlobalStyle`
     --black: #1E293B;
     --lightBlack: #293445;
     --gray: #E4E5E7;
-    --white: #FAFAFA;
+    --white: rgb(250, 250, 250);
     --primary: #1FC8E1;
     --primaryDark: '#18A1B5';
   }
@@ -41,5 +44,10 @@ export const GlobalStyle = createGlobalStyle`
 
   ul {
     list-style: none;
+  }
+
+  &::selection {
+    color: var(--white);
+    background: var(--primary);
   }
 `
