@@ -114,10 +114,8 @@ export const RemoveButton = styled(DefaultButton)`
   background: transparent;
   border: 0;
   display: none;
-  margin: 0 0 0 auto;
-  padding: 0;
   position: absolute;
-  right: 15px;
+  right: 12px;
   top: -3px;
   width: 12px;
 
@@ -125,7 +123,7 @@ export const RemoveButton = styled(DefaultButton)`
     width: 14px;
     height: 14px;
     color: var(--white);
-    margin: 15px 15px 0 0;
+    margin: 20px 0 0 0;
   }
 `
 
