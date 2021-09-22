@@ -10,8 +10,12 @@ export const Image = styled.img`
 
 export const Aside = styled.aside`
   background: var(--black);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
   padding: 32px;
-  width: 332px;
+  overflow: hidden;
+  width: 333px;
 
   h2 {
     color: var(--white);
@@ -97,8 +101,11 @@ export const Button = styled(DefaultButton)`
 
 export const FileList = styled.ul`
   list-style: none;
-  margin: 0;
-  padding: 0;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 `
 
 export const StatusIconStyled = styled(StatusIcon)<StatusIconProps>`${({ status }) => css`
@@ -157,8 +164,6 @@ export const FileItemLink = styled.a<FileItemLinkProps>`${({ active }) => css`
 export const FileListItem = styled.li`
   position: relative;
 
-  :first-child {
-  }
 
   &:hover {
     ${RemoveButton} {
