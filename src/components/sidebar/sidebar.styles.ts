@@ -145,9 +145,11 @@ export const FileItemLink = styled.a<FileItemLinkProps>`${({ active }) => css`
   color: var(--white);
   display: flex;
   font-size: 1.6rem;
-  padding: 8px 32px;
+  padding: 15px 32px;
   padding-left: 50px;
   text-decoration: none;
+  margin-top: 5px;
+
 
   ${active && css`
     background-color: var(--lightBlack);
@@ -158,7 +160,6 @@ export const FileListItem = styled.li`
   position: relative;
 
   :first-child {
-    margin: 34px 0 5px 0;
   }
 
   &:hover {
