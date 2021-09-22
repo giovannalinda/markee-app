@@ -21,6 +21,18 @@ export const TypeArea = styled.div`
     margin-top: 43px;
     outline: none;
     resize: none;
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+    &::-webkit-scrollbar {
+      width: 10px;
+      background:transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--white);
+    }
   }
 `
 
@@ -51,11 +63,17 @@ export const InputArea = styled.div`
 `
 
 export const MarkdownSide = styled.div`
-  font: 16px 'DM Sans', sans-serif;
   background: transparent;
   display: flex;
   flex-direction: column;
+  font: 16px 'DM Sans', sans-serif;
+  overflow-y: scroll;
   padding: 60px;
   height: 100vh;
-  width: 500px;
+  width: 600px;
+  word-break: break-all;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 `

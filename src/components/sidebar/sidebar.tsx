@@ -2,25 +2,26 @@ import logo from 'assets/images/markee-logo.svg'
 import * as S from 'components/sidebar/sidebar.styles'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { File } from 'components/sidebar/sidebar.types'
-
-const files: File[] = [
-  {
-    id: '0',
-    name: 'README.md',
-    content: 'Conteúdo do README',
-    active: false,
-    status: 'saved',
-  },
-  {
-    id: '1',
-    name: 'CONTRIBUTING.md',
-    content: 'Conteúdo do Contributing',
-    active: true,
-    status: 'editing',
-  },
-]
+import { v4 as uuidv4 } from 'uuid'
+import { useState } from 'react'
 
 export function Sidebar () {
+  const [files, setFiles] = useState<File[]>([])
+
+  function createNewFile () {
+    setFiles(files.map(file => ({
+      ...file,
+      active: false,
+    }))
+      .concat({
+        id: uuidv4(),
+        name: 'Sem título',
+        content: '',
+        active: true,
+        status: 'saved',
+      }))
+  }
+
   return (
     <S.Aside>
       <header>
@@ -31,7 +32,7 @@ export function Sidebar () {
         <span>Arquivos</span>
       </h2>
 
-      <S.Button>
+      <S.Button onClick={createNewFile}>
         <AiOutlinePlus />
         Adicionar arquivo
       </S.Button>

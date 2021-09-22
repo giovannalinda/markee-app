@@ -10,8 +10,12 @@ export const Image = styled.img`
 
 export const Aside = styled.aside`
   background: var(--black);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
   padding: 32px;
-  width: 332px;
+  overflow: hidden;
+  width: 333px;
 
   h2 {
     color: var(--white);
@@ -97,8 +101,11 @@ export const Button = styled(DefaultButton)`
 
 export const FileList = styled.ul`
   list-style: none;
-  margin: 0;
-  padding: 0;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 `
 
 export const StatusIconStyled = styled(StatusIcon)<StatusIconProps>`${({ status }) => css`
@@ -114,10 +121,8 @@ export const RemoveButton = styled(DefaultButton)`
   background: transparent;
   border: 0;
   display: none;
-  margin: 0 0 0 auto;
-  padding: 0;
   position: absolute;
-  right: 15px;
+  right: 12px;
   top: -3px;
   width: 12px;
 
@@ -125,7 +130,7 @@ export const RemoveButton = styled(DefaultButton)`
     width: 14px;
     height: 14px;
     color: var(--white);
-    margin: 15px 15px 0 0;
+    margin: 20px 0 0 0;
   }
 `
 
@@ -145,9 +150,11 @@ export const FileItemLink = styled.a<FileItemLinkProps>`${({ active }) => css`
   color: var(--white);
   display: flex;
   font-size: 1.6rem;
-  padding: 8px 32px;
+  padding: 15px 32px;
   padding-left: 50px;
   text-decoration: none;
+  margin-top: 5px;
+
 
   ${active && css`
     background-color: var(--lightBlack);
@@ -157,9 +164,6 @@ export const FileItemLink = styled.a<FileItemLinkProps>`${({ active }) => css`
 export const FileListItem = styled.li`
   position: relative;
 
-  :first-child {
-    margin: 34px 0 5px 0;
-  }
 
   &:hover {
     ${RemoveButton} {
