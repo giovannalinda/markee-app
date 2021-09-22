@@ -2,21 +2,15 @@ import logo from 'assets/images/markee-logo.svg'
 import * as S from 'components/sidebar/sidebar.styles'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { File } from 'components/sidebar/sidebar.types'
+import { v4 as uuidv4 } from 'uuid'
 
 const files: File[] = [
   {
-    id: '0',
-    name: 'README.md',
-    content: 'Conteúdo do README',
-    active: false,
-    status: 'saved',
-  },
-  {
-    id: '1',
-    name: 'CONTRIBUTING.md',
-    content: 'Conteúdo do Contributing',
+    id: uuidv4(),
+    name: 'Sem título',
+    content: '',
     active: true,
-    status: 'editing',
+    status: 'saved',
   },
 ]
 
