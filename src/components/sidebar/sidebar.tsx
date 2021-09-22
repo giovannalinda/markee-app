@@ -3,18 +3,25 @@ import * as S from 'components/sidebar/sidebar.styles'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { File } from 'components/sidebar/sidebar.types'
 import { v4 as uuidv4 } from 'uuid'
-
-const files: File[] = [
-  {
-    id: uuidv4(),
-    name: 'Sem título',
-    content: '',
-    active: true,
-    status: 'saved',
-  },
-]
+import { useState } from 'react'
 
 export function Sidebar () {
+  const [files, setFiles] = useState<File[]>([])
+
+  function createNewFile () {
+    setFiles(files.map(file => ({
+      ...file,
+      active: false,
+    }))
+      .concat({
+        id: uuidv4(),
+        name: 'Sem título',
+        content: '',
+        active: true,
+        status: 'saved',
+      }))
+  }
+
   return (
     <S.Aside>
       <header>
@@ -25,7 +32,7 @@ export function Sidebar () {
         <span>Arquivos</span>
       </h2>
 
-      <S.Button>
+      <S.Button onClick={createNewFile}>
         <AiOutlinePlus />
         Adicionar arquivo
       </S.Button>
