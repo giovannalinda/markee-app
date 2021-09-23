@@ -1,14 +1,19 @@
+import { useState, RefObject } from 'react'
 import logo from 'assets/images/markee-logo.svg'
 import * as S from 'components/sidebar/sidebar.styles'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { File } from 'components/sidebar/sidebar.types'
 import { v4 as uuidv4 } from 'uuid'
-import { useState } from 'react'
 
-export function Sidebar () {
+type SidebarProps = {
+  inputRef: RefObject<HTMLInputElement>
+}
+
+export function Sidebar ({ inputRef }: SidebarProps) {
   const [files, setFiles] = useState<File[]>([])
 
   function createNewFile () {
+    inputRef.current?.focus()
     setFiles(files.map(file => ({
       ...file,
       active: false,

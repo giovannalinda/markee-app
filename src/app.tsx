@@ -1,12 +1,14 @@
+import { useRef } from 'react'
 import styled from 'styled-components/macro'
 import { Sidebar } from 'components/sidebar/sidebar'
 import { Content } from 'components/content/content'
 
 export function App () {
+  const inputRef = useRef<HTMLInputElement>(null)
   return (
     <Main>
-      <Sidebar />
-      <Content />
+      <Sidebar inputRef={inputRef} />
+      <Content inputRef={inputRef} />
     </Main>
   )
 }

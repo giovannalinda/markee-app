@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from 'react'
+import { useState, ChangeEvent, Ref } from 'react'
 import { FiFileText } from 'react-icons/fi'
 import * as S from './content.styled'
 import marked from 'marked'
@@ -20,7 +20,11 @@ import('highlight.js').then(hljs => {
 
 // highlight.highlightAll()
 
-export function Content () {
+type ContentProps = {
+  inputRef: Ref<HTMLInputElement>
+}
+
+export function Content ({ inputRef }: ContentProps) {
   const [content, setContent] = useState('')
 
   function handleChange (event: ChangeEvent<HTMLTextAreaElement>) {
@@ -35,7 +39,7 @@ export function Content () {
           <FiFileText size={24} />
           <input
             placeholder='Nome do arquivo'
-            autoFocus
+            ref={inputRef}
           />
         </S.InputArea>
 
