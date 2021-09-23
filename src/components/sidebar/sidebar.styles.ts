@@ -12,10 +12,10 @@ export const Aside = styled.aside`
   background: var(--black);
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
   padding: 32px;
   overflow: hidden;
-  width: 333px;
+  min-width: 333px;
 
   h2 {
     color: var(--white);
@@ -149,12 +149,11 @@ export const FileItemLink = styled.a<FileItemLinkProps>`${({ active }) => css`
   border-radius: 4px;
   color: var(--white);
   display: flex;
-  font-size: 1.6rem;
+  font-size: 16px;
   padding: 15px 32px;
   padding-left: 50px;
   text-decoration: none;
   margin-top: 5px;
-
 
   ${active && css`
     background-color: var(--lightBlack);

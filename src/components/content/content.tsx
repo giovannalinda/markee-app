@@ -1,5 +1,6 @@
 import { useState, ChangeEvent, Ref } from 'react'
 import { FiFileText } from 'react-icons/fi'
+import { File } from 'components/sidebar/sidebar.types'
 import * as S from './content.styled'
 import marked from 'marked'
 import 'highlight.js/styles/vs.css'
@@ -21,14 +22,20 @@ import('highlight.js').then(hljs => {
 // highlight.highlightAll()
 
 type ContentProps = {
+  file?: File
   inputRef: Ref<HTMLInputElement>
+  onUpdateFileName: (id: string) => (event: ChangeEvent<HTMLInputElement>) => void
 }
 
-export function Content ({ inputRef }: ContentProps) {
+export function Content ({ inputRef, onUpdateFileName, file }: ContentProps) {
   const [content, setContent] = useState('')
 
   function handleChange (event: ChangeEvent<HTMLTextAreaElement>) {
     setContent(event.target.value)
+  }
+
+  if (!file) {
+    return null
   }
 
   return (
@@ -40,6 +47,9 @@ export function Content ({ inputRef }: ContentProps) {
           <input
             placeholder='Nome do arquivo'
             ref={inputRef}
+            autoFocus
+            onChange={onUpdateFileName(file.id)}
+            value={file.name}
           />
         </S.InputArea>
 
