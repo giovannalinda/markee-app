@@ -38,11 +38,16 @@ export function App () {
     }))
   }
 
+  function handleDelete (id: string) {
+    setFiles(files => files.filter(file => file.id !== id))
+  }
+
   return (
     <Main>
       <Sidebar
         files={files}
         onNewFile={createNewFile}
+        onRemoveFile={handleDelete}
       />
       <Content
         inputRef={inputRef}

@@ -6,11 +6,13 @@ import * as S from 'components/sidebar/sidebar.styles'
 type SidebarProps = {
   files: File[]
   onNewFile: () => void
+  onRemoveFile: (id: string) => void
 }
 
 export function Sidebar ({
   files,
   onNewFile,
+  onRemoveFile,
 }: SidebarProps) {
   return (
     <S.Aside>
@@ -37,7 +39,10 @@ export function Sidebar ({
             {file.active && <S.StatusIconStyled status={file.status} />}
 
             {!file.active && (
-              <S.RemoveButton title={`Remover o arquivo ${file.name}`}>
+              <S.RemoveButton
+                title={`Remover o arquivo ${file.name}`}
+                onClick={() => onRemoveFile(file.id)}
+              >
                 <S.RemoveIcon />
               </S.RemoveButton>
             )}
