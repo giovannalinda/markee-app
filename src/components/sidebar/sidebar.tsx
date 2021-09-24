@@ -1,8 +1,8 @@
 import { MouseEvent } from 'react'
-import { File } from 'types/type.file'
+import { File } from '../../types/type.file'
 import { AiOutlinePlus } from 'react-icons/ai'
-import logo from 'assets/images/markee-logo.svg'
-import * as S from 'components/sidebar/sidebar.styles'
+import logo from '../../assets/images/markee-logo.svg'
+import * as S from './sidebar.styles'
 
 type SidebarProps = {
   files: File[]

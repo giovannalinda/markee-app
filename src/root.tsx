@@ -1,6 +1,6 @@
 import { App } from 'app'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
-import { theme } from 'types/theme'
+import { theme } from './types/theme'
 
 export function Root () {
   return (
