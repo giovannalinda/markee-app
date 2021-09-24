@@ -13,15 +13,6 @@ export function Root () {
 }
 
 export const GlobalStyle = createGlobalStyle`
-  :root {
-    --black: #1E293B;
-    --lightBlack: #293445;
-    --gray: #E4E5E7;
-    --white: rgb(250, 250, 250);
-    --primary: #1FC8E1;
-    --primaryDark: '#18A1B5';
-  }
-
   * {
     margin: 0;
     padding: 0;

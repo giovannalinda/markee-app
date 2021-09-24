@@ -18,21 +18,21 @@ export const Aside = styled.aside`${({ theme }) => css`
   min-width: 333px;
 
   h2 {
-    color: var(--white);
+    color: ${theme.colors.white};
     font-size: 16px;
     margin: 40px 0 32px;
     position: relative;
     padding-left: 20px;
 
     span {
-      background: var(--black);
+      background: ${theme.colors.black};
       position: relative;
       padding: 0 10px;
       border-radius: 6px;
     }
 
     &::before {
-      background: var(--primary);
+      background: ${theme.colors.primary};
       border-radius: 4px;
       content: '';
       height: 4px;
