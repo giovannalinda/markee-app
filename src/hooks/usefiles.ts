@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, ChangeEvent, MouseEvent } from 'react'
 import { v4 as uuidv4 } from 'uuid'
-import { File } from '../types/type.file'
+import { File } from 'types/type.file'
 import localforage from 'localforage'
 
 export function useFiles () {

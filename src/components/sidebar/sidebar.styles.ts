@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components/macro'
 import { StatusIcon, StatusIconProps } from './status.icon'
-import * as icon from '../../assets/icons'
+import * as icon from 'assets/icons'
 
 export const Image = styled.img`
   display: flex;

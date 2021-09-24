@@ -1,6 +1,6 @@
-import { useFiles } from './hooks/useFiles'
-import { Sidebar } from './components/sidebar/sidebar'
-import { Content } from './components/content/content'
+import { useFiles } from 'hooks/useFiles'
+import { Sidebar } from 'components/sidebar/sidebar'
+import { Content } from 'components/content/content'
 import styled from 'styled-components/macro'
 
 export function App () {
