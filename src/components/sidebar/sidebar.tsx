@@ -1,3 +1,4 @@
+import { MouseEvent } from 'react'
 import { File } from 'components/sidebar/sidebar.types'
 import { AiOutlinePlus } from 'react-icons/ai'
 import logo from 'assets/images/markee-logo.svg'
@@ -7,12 +8,14 @@ type SidebarProps = {
   files: File[]
   onNewFile: () => void
   onRemoveFile: (id: string) => void
+  onSelectFile: (id: string) => (e: MouseEvent) => void
 }
 
 export function Sidebar ({
   files,
   onNewFile,
   onRemoveFile,
+  onSelectFile,
 }: SidebarProps) {
   return (
     <S.Aside>
@@ -32,7 +35,11 @@ export function Sidebar ({
       <S.FileList>
         {files.map(file => (
           <S.FileListItem key={file.id}>
-            <S.FileItemLink href={`/file/${file.name}`} active={file.active}>
+            <S.FileItemLink
+              href={`/file/${file.name}`}
+              active={file.active}
+              onClick={onSelectFile(file.id)}
+            >
               {file.name}
             </S.FileItemLink>
 

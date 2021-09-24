@@ -1,4 +1,4 @@
-import { useState, useRef, ChangeEvent, useEffect } from 'react'
+import { useState, useRef, ChangeEvent, useEffect, MouseEvent } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { File } from 'components/sidebar/sidebar.types'
 import { Sidebar } from 'components/sidebar/sidebar'
@@ -80,6 +80,17 @@ export function App () {
     }))
   }
 
+  const selectFile = (id: string) => (e: MouseEvent) => {
+    e.preventDefault()
+
+    inputRef.current?.focus()
+
+    setFiles(files => files.map(file => ({
+      ...file,
+      active: file.id === id,
+    })))
+  }
+
   const updateFileContent = (id: string) => (event: ChangeEvent<HTMLTextAreaElement>) => {
     setFiles(files => files.map(file => {
       if (file.id === id) {
@@ -104,6 +115,7 @@ export function App () {
         files={files}
         onNewFile={createNewFile}
         onRemoveFile={handleDelete}
+        onSelectFile={selectFile}
       />
       <Content
         inputRef={inputRef}
