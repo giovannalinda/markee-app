@@ -1,5 +1,5 @@
 import { App } from 'app'
-import { ThemeProvider, createGlobalStyle } from 'styled-components'
+import { ThemeProvider, createGlobalStyle, css } from 'styled-components'
 import { theme } from 'types/theme'
 
 export function Root () {
@@ -11,7 +11,7 @@ export function Root () {
   )
 }
 
-export const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`${({ theme }) => css`
   * {
     margin: 0;
     padding: 0;
@@ -36,7 +36,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   &::selection {
-    color: var(--white);
-    background: var(--primary);
+    color: ${theme.colors.white};
+    background: ${theme.colors.primary};
   }
-`
+`}`
