@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components/macro'
-import { Status } from './sidebar.types'
+import { Status } from 'types/styled'
 import { BsFillCircleFill, BsCheck } from 'react-icons/bs'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 

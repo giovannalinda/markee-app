@@ -1,6 +1,6 @@
 import { ChangeEvent, RefObject } from 'react'
 import { FiFileText } from 'react-icons/fi'
-import { File } from 'components/sidebar/sidebar.types'
+import { File } from 'types/styled'
 import * as S from './content.styled'
 import marked from 'marked'
 import 'highlight.js/styles/vs.css'

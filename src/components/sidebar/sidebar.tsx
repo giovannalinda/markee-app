@@ -1,5 +1,5 @@
 import { MouseEvent } from 'react'
-import { File } from 'components/sidebar/sidebar.types'
+import { File } from 'types/styled'
 import { AiOutlinePlus } from 'react-icons/ai'
 import logo from 'assets/images/markee-logo.svg'
 import * as S from 'components/sidebar/sidebar.styles'
