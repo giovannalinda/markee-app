@@ -1,13 +1,14 @@
 import { App } from 'app'
+import { ThemeProvider, createGlobalStyle } from 'styled-components'
+import { theme } from 'types/theme'
 import 'normalize.css'
-import { createGlobalStyle } from 'styled-components'
 
 export function Root () {
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
       <App />
-    </>
+    </ThemeProvider>
   )
 }
 

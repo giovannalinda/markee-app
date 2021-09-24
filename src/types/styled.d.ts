@@ -1,11 +1,14 @@
-type Status = 'editing' | 'saving' | 'saved'
-
-type File = {
-  id: string
-  name: string
-  content: string
-  active: boolean
-  status: Status
+declare module 'styled-components' {
+  export interface DefaultTheme {
+    colors: {
+      black: string
+      lightBlack: string
+      gray: string
+      white: string
+      primary: string
+      primaryDark: string
+    }
+  }
 }
 
-export type { Status, File }
+export {}

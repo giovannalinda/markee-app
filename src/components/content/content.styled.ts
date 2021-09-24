@@ -1,11 +1,11 @@
-import styled from 'styled-components/macro'
+import styled, { css } from 'styled-components/macro'
 
 export const Container = styled.div`
   margin-left: 33px;
   display: flex;
 `
 
-export const TypeArea = styled.div`
+export const TypeArea = styled.div`${({ theme }) => css`
   display: flex;
   flex-direction: column;
   padding: 24px;
@@ -31,10 +31,10 @@ export const TypeArea = styled.div`
     }
 
     &::-webkit-scrollbar-thumb {
-      background: var(--white);
+      background: ${theme.colors.white};
     }
   }
-`
+`}`
 
 export const Separator = styled.div`
   height: 85vh;
@@ -42,7 +42,7 @@ export const Separator = styled.div`
   background: rgba(30, 41, 59, 0.12);
 `
 
-export const InputArea = styled.div`
+export const InputArea = styled.div`${({ theme }) => css`
   display: flex;
   align-items: center;
   font: 16px 'Inconsolata', 'Courier New', Courier, monospace;
@@ -58,9 +58,9 @@ export const InputArea = styled.div`
   }
 
   svg {
-    color: var(--primary);
+    color: ${theme.colors.primary};
   }
-`
+`}`
 
 export const MarkdownSide = styled.div`
   background: transparent;
