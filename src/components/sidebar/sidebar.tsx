@@ -1,27 +1,22 @@
+import { MouseEvent } from 'react'
+import { File } from 'components/sidebar/sidebar.types'
+import { AiOutlinePlus } from 'react-icons/ai'
 import logo from 'assets/images/markee-logo.svg'
 import * as S from 'components/sidebar/sidebar.styles'
-import { AiOutlinePlus } from 'react-icons/ai'
-import { File } from 'components/sidebar/sidebar.types'
-import { v4 as uuidv4 } from 'uuid'
-import { useState } from 'react'
 
-export function Sidebar () {
-  const [files, setFiles] = useState<File[]>([])
+type SidebarProps = {
+  files: File[]
+  onNewFile: () => void
+  onRemoveFile: (id: string) => void
+  onSelectFile: (id: string) => (e: MouseEvent) => void
+}
 
-  function createNewFile () {
-    setFiles(files.map(file => ({
-      ...file,
-      active: false,
-    }))
-      .concat({
-        id: uuidv4(),
-        name: 'Sem título',
-        content: '',
-        active: true,
-        status: 'saved',
-      }))
-  }
-
+export function Sidebar ({
+  files,
+  onNewFile,
+  onRemoveFile,
+  onSelectFile,
+}: SidebarProps) {
   return (
     <S.Aside>
       <header>
@@ -32,7 +27,7 @@ export function Sidebar () {
         <span>Arquivos</span>
       </h2>
 
-      <S.Button onClick={createNewFile}>
+      <S.Button onClick={onNewFile}>
         <AiOutlinePlus />
         Adicionar arquivo
       </S.Button>
@@ -40,14 +35,21 @@ export function Sidebar () {
       <S.FileList>
         {files.map(file => (
           <S.FileListItem key={file.id}>
-            <S.FileItemLink href={`/file/${file.name}`} active={file.active}>
+            <S.FileItemLink
+              href={`/file/${file.name}`}
+              active={file.active}
+              onClick={onSelectFile(file.id)}
+            >
               {file.name}
             </S.FileItemLink>
 
             {file.active && <S.StatusIconStyled status={file.status} />}
 
             {!file.active && (
-              <S.RemoveButton title={`Remover o arquivo ${file.name}`}>
+              <S.RemoveButton
+                title={`Remover o arquivo ${file.name}`}
+                onClick={() => onRemoveFile(file.id)}
+              >
                 <S.RemoveIcon />
               </S.RemoveButton>
             )}

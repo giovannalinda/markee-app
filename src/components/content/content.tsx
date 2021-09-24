@@ -1,5 +1,6 @@
-import { useState, ChangeEvent } from 'react'
+import { ChangeEvent, RefObject } from 'react'
 import { FiFileText } from 'react-icons/fi'
+import { File } from 'components/sidebar/sidebar.types'
 import * as S from './content.styled'
 import marked from 'marked'
 import 'highlight.js/styles/vs.css'
@@ -20,11 +21,21 @@ import('highlight.js').then(hljs => {
 
 // highlight.highlightAll()
 
-export function Content () {
-  const [content, setContent] = useState('')
+type ContentProps = {
+  file?: File
+  inputRef: RefObject<HTMLInputElement>
+  onUpdateFileName: (id: string) => (e: ChangeEvent<HTMLInputElement>) => void
+  onUpdateFileContent: (id: string) => (e: ChangeEvent<HTMLTextAreaElement>) => void
+}
 
-  function handleChange (event: ChangeEvent<HTMLTextAreaElement>) {
-    setContent(event.target.value)
+export function Content ({
+  inputRef,
+  onUpdateFileName,
+  file,
+  onUpdateFileContent,
+}: ContentProps) {
+  if (!file) {
+    return null
   }
 
   return (
@@ -35,20 +46,23 @@ export function Content () {
           <FiFileText size={24} />
           <input
             placeholder='Nome do arquivo'
+            ref={inputRef}
             autoFocus
+            onChange={onUpdateFileName(file.id)}
+            value={file.name}
           />
         </S.InputArea>
 
         <textarea
-          placeholder='Digite seu conteúdo aqui'
-          value={content}
-          onChange={handleChange}
+          placeholder='Digite seu markdown aqui'
+          value={file.content}
+          onChange={onUpdateFileContent(file.id)}
         />
       </S.TypeArea>
 
       <S.Separator />
 
-      <S.MarkdownSide dangerouslySetInnerHTML={{ __html: marked(content) }} />
+      <S.MarkdownSide dangerouslySetInnerHTML={{ __html: marked(file.content) }} />
 
     </S.Container>
   )
