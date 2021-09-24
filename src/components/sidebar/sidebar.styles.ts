@@ -8,8 +8,8 @@ export const Image = styled.img`
   margin-top: 30px;
 `
 
-export const Aside = styled.aside`
-  background: var(--black);
+export const Aside = styled.aside`${({ theme }) => css`
+  background: ${theme.colors.black};
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -18,21 +18,21 @@ export const Aside = styled.aside`
   min-width: 333px;
 
   h2 {
-    color: var(--white);
+    color: ${theme.colors.white};
     font-size: 16px;
     margin: 40px 0 32px;
     position: relative;
     padding-left: 20px;
 
     span {
-      background: var(--black);
+      background: ${theme.colors.black};
       position: relative;
       padding: 0 10px;
       border-radius: 6px;
     }
 
     &::before {
-      background: var(--primary);
+      background: ${theme.colors.primary};
       border-radius: 4px;
       content: '';
       height: 4px;
@@ -43,14 +43,14 @@ export const Aside = styled.aside`
       z-index: 0;
     }
   }
-`
+`}`
 
-export const ButtonNewFile = styled.button`
+export const ButtonNewFile = styled.button`${({ theme }) => css`
   align-items: center;
-  background: var(--primary);
+  background: ${theme.colors.primary};
   border: 0;
   border-radius: 4px;
-  color: var(--black);
+  color: ${theme.colors.black};
   display: flex;
   font-size: 14px;
   justify-content: center;
@@ -66,7 +66,7 @@ export const ButtonNewFile = styled.button`
     opacity: 90%;
     transition: opacity 0.3s;
   }
-`
+`}`
 
 export const LogoLink = styled.a`
   display: block;
@@ -76,12 +76,12 @@ const DefaultButton = styled.button`
   cursor: pointer;
 `
 
-export const Button = styled(DefaultButton)`
+export const Button = styled(DefaultButton)`${({ theme }) => css`
   align-items: center;
-  background: var(--primary);
+  background: ${theme.colors.primary};
   border: 0;
   border-radius: 4px;
-  color: var(--LightBlack);
+  color: ${theme.colors.lightBlack};
   display: flex;
   font-size: 14px;
   justify-content: center;
@@ -97,7 +97,7 @@ export const Button = styled(DefaultButton)`
   &:hover {
    opacity: 80%;
   }
-`
+`}`
 
 export const FileList = styled.ul`
   list-style: none;
@@ -108,16 +108,16 @@ export const FileList = styled.ul`
   }
 `
 
-export const StatusIconStyled = styled(StatusIcon)<StatusIconProps>`${({ status }) => css`
+export const StatusIconStyled = styled(StatusIcon)<StatusIconProps>`${({ status, theme }) => css`
   position: absolute;
   right: 12px;
-  color: var(--primary);
+  color: ${theme.colors.primary};
   top: 50%;
   margin-top: ${status === 'saving' ? -5 : 0}px;
   transform: translateY(-50%);
 `}`
 
-export const RemoveButton = styled(DefaultButton)`
+export const RemoveButton = styled(DefaultButton)`${({ theme }) => css`
   background: transparent;
   border: 0;
   display: none;
@@ -129,10 +129,10 @@ export const RemoveButton = styled(DefaultButton)`
   & svg {
     width: 14px;
     height: 14px;
-    color: var(--white);
+    color: ${theme.colors.white};
     margin: 20px 0 0 0;
   }
-`
+`}`
 
 export const RemoveIcon = styled(icon.Plus)`
   margin: 0;
@@ -143,11 +143,11 @@ type FileItemLinkProps = {
   active: boolean
 }
 
-export const FileItemLink = styled.a<FileItemLinkProps>`${({ active }) => css`
+export const FileItemLink = styled.a<FileItemLinkProps>`${({ active, theme }) => css`
   background: url("${active ? icon.FileActiveUrl : icon.FileUrl}") 10px calc(50% - 2px) no-repeat;
   align-items: center;
   border-radius: 4px;
-  color: var(--white);
+  color: ${theme.colors.white};
   display: flex;
   font-size: 16px;
   padding: 15px 32px;
@@ -156,11 +156,11 @@ export const FileItemLink = styled.a<FileItemLinkProps>`${({ active }) => css`
   margin-top: 5px;
 
   ${active && css`
-    background-color: var(--lightBlack);
+    background-color: ${theme.colors.lightBlack};
   `}
 `}`
 
-export const FileListItem = styled.li`
+export const FileListItem = styled.li`${({ theme }) => css`
   position: relative;
 
 
@@ -170,7 +170,7 @@ export const FileListItem = styled.li`
     }
 
     ${FileItemLink} {
-      background-color: var(--lightBlack);
+      background-color: ${theme.colors.lightBlack};
     }
   }
-`
+`}`
