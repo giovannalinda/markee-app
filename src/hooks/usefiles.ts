@@ -8,10 +8,6 @@ export function useFiles () {
   const [files, setFiles] = useState<File[]>([{ id: uuidv4(), name: 'Sem titulo', content: '', active: true, status: 'saved' }])
 
   useEffect(() => {
-    localforage.setItem('markdown editor', files)
-  }, [files])
-
-  useEffect(() => {
     const selectedFile = files.find(file => file.active === true)
     if (selectedFile) {
       window.history.replaceState(null, '', `/file/${selectedFile.id}`)
@@ -72,19 +68,22 @@ export function useFiles () {
     return () => clearTimeout(timer)
   }, [files])
 
-  function createNewFile () {
+  async function createNewFile () {
     inputRef.current?.focus()
-    setFiles(files.map(file => ({
-      ...file,
-      active: false,
-    }))
-      .concat({
+    setFiles((prevState) => {
+      const newFiles: File[] = [...prevState.map(file => ({
+        ...file,
+        active: false,
+      })), {
         id: uuidv4(),
         name: 'Sem título',
         content: '',
         active: true,
         status: 'saved',
-      }))
+      }]
+      localforage.setItem('markdown editor', newFiles)
+      return newFiles
+    })
   }
 
   const updateFileName = (id: string) => (e: ChangeEvent<HTMLInputElement>) => {
