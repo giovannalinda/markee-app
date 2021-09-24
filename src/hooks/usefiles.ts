@@ -68,22 +68,19 @@ export function useFiles () {
     return () => clearTimeout(timer)
   }, [files])
 
-  async function createNewFile () {
+  function createNewFile () {
     inputRef.current?.focus()
-    setFiles((prevState) => {
-      const newFiles: File[] = [...prevState.map(file => ({
-        ...file,
-        active: false,
-      })), {
+    setFiles(files.map(file => ({
+      ...file,
+      active: false,
+    }))
+      .concat({
         id: uuidv4(),
         name: 'Sem título',
         content: '',
         active: true,
         status: 'saved',
-      }]
-      localforage.setItem('markdown editor', newFiles)
-      return newFiles
-    })
+      }))
   }
 
   const updateFileName = (id: string) => (e: ChangeEvent<HTMLInputElement>) => {
