@@ -12,6 +12,13 @@ export function useFiles () {
   }, [files])
 
   useEffect(() => {
+    const selectedFile = files.find(file => file.active === true)
+    if (selectedFile) {
+      window.history.replaceState(null, '', `/file/${selectedFile.id}`)
+    }
+  }, [files])
+
+  useEffect(() => {
     async function getStorage () {
       const files = await localforage.getItem<File[]>('markdown editor')
 
