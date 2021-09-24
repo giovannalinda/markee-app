@@ -5,7 +5,7 @@ import localforage from 'localforage'
 
 export function useFiles () {
   const inputRef = useRef<HTMLInputElement>(null)
-  const [files, setFiles] = useState<File[]>([])
+  const [files, setFiles] = useState<File[]>([{ id: uuidv4(), name: 'Sem titulo', content: '', active: true, status: 'saved' }])
 
   useEffect(() => {
     localforage.setItem('markdown editor', files)
@@ -24,10 +24,7 @@ export function useFiles () {
 
       if (files) {
         setFiles(files)
-        return
       }
-
-      createNewFile()
     }
 
     getStorage()

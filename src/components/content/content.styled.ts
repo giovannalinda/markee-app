@@ -40,6 +40,7 @@ export const Separator = styled.div`
   height: 85vh;
   width: 2px;
   background: rgba(30, 41, 59, 0.12);
+  margin-top: 100px;
 `
 
 export const InputArea = styled.div`${({ theme }) => css`

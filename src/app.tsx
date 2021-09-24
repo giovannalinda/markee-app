@@ -1,4 +1,4 @@
-import { useFiles } from 'hooks/usefiles'
+import { useFiles } from 'hooks/useFiles'
 import { Sidebar } from 'components/sidebar/sidebar'
 import { Content } from 'components/content/content'
 import styled from 'styled-components/macro'
