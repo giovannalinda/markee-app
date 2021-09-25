@@ -24,10 +24,7 @@ export function useFiles () {
 
       if (files) {
         setFiles(files)
-        return
       }
-
-      createNewFile()
     }
 
     getStorage()
