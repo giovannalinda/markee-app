@@ -16,6 +16,7 @@ export const Aside = styled.aside`${({ theme }) => css`
   padding: 32px;
   overflow: hidden;
   min-width: 333px;
+  max-width: 333px;
 
   h2 {
     color: ${theme.colors.white};
@@ -162,7 +163,6 @@ export const FileItemLink = styled.a<FileItemLinkProps>`${({ active, theme }) =>
 
 export const FileListItem = styled.li`${({ theme }) => css`
   position: relative;
-
 
   &:hover {
     ${RemoveButton} {
