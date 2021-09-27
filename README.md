@@ -1,5 +1,5 @@
 <div align="center">
-<img align="center">![markee](https://raw.githubusercontent.com/joaogabriel-sg/markee-app/91864cffd517c03d511e9fa38224de68d5909ff4/src/resources/assets/logo.svg)
+![markee](https://raw.githubusercontent.com/joaogabriel-sg/markee-app/91864cffd517c03d511e9fa38224de68d5909ff4/src/resources/assets/logo.svg)
   
 <h3>Markee App is a markdown editor</h3>
 </div>
