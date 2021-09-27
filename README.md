@@ -30,7 +30,7 @@ Open http://localhost:3000 to view it in the browser.
   * ESLint
   * LocalForage
   * EditorConfig
-#### 💻 Author
+### 💻 Author
 [Meu Linkedin](https://www.linkedin.com/in/giovanna-linda-752960205/)
   
-made with :heart: by [Giovanna](https://www.linkedin.com/in/giovanna-linda-752960205/)
+made with :purple_heart: by [Giovanna](https://www.linkedin.com/in/giovanna-linda-752960205/)
