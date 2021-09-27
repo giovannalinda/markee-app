@@ -1,4 +1,4 @@
-![markee](https://raw.githubusercontent.com/joaogabriel-sg/markee-app/91864cffd517c03d511e9fa38224de68d5909ff4/src/resources/assets/logo.svg)
+<h1 align="center">![markee](https://raw.githubusercontent.com/joaogabriel-sg/markee-app/91864cffd517c03d511e9fa38224de68d5909ff4/src/resources/assets/logo.svg)</h1>
 
 # Getting Started with Create React App
 
