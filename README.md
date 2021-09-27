@@ -1,6 +1,4 @@
-<div align="center">
 ![markee](https://raw.githubusercontent.com/joaogabriel-sg/markee-app/91864cffd517c03d511e9fa38224de68d5909ff4/src/resources/assets/logo.svg)
-</div>
   
 ## Markee App is a markdown editor</h3>
 
@@ -32,7 +30,7 @@ Open http://localhost:3000 to view it in the browser.
   * ESLint
   * LocalForage
   * EditorConfig
-#### Author
+#### 💻 Author
 [Meu Linkedin](https://www.linkedin.com/in/giovanna-linda-752960205/)
   
 made with :heart: by [Giovanna](https://www.linkedin.com/in/giovanna-linda-752960205/)
