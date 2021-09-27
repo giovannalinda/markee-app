@@ -31,6 +31,6 @@ Open http://localhost:3000 to view it in the browser.
   * LocalForage
   * EditorConfig
 #### Author
-[Linkedin](https://www.linkedin.com/in/giovanna-linda-752960205/)
+[Meu Linkedin](https://www.linkedin.com/in/giovanna-linda-752960205/)
   
-<p>made with :heart: by [Giovanna](https://www.linkedin.com/in/giovanna-linda-752960205/)</p>
+made with :heart: by [Giovanna](https://www.linkedin.com/in/giovanna-linda-752960205/)
