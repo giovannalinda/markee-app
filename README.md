@@ -1,4 +1,4 @@
-<div align="center"
+<div align="center">
 ![markee](https://raw.githubusercontent.com/joaogabriel-sg/markee-app/91864cffd517c03d511e9fa38224de68d5909ff4/src/resources/assets/logo.svg)
 </div>
   
